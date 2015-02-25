@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hello Spring Boot!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<th:block th:include="layout/fragments :: header-libs"></th:block>
+</head>
+<body>
+
+	<th:block th:include="layout/fragments :: navbar"></th:block>
+
+	<div class="container">
+
+		<form class="form-horizontal">
+		  <div class="form-group">
+		    <label for="dph" class="col-sm-2 control-label">DPH %:</label>
+		    <div class="col-sm-2">
+		      <input type="text" class="form-control" id="dph" placeholder="" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="bezDph" class="col-sm-2 control-label">Cena bez DPH:</label>
+		    <div class="col-sm-2">
+		      <input type="text" class="form-control" id="cenaBezDph" placeholder="" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="bezDph" class="col-sm-2 control-label">Cena s DPH:</label>
+		    <div class="col-sm-2">
+		      <input type="text" class="form-control" id="cenaSDph" placeholder="" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="bezDph" class="col-sm-2 control-label">Částka DPH:</label>
+		    <div class="col-sm-2">
+		      <input type="text" class="form-control" id="castkaDph" placeholder="" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-2">
+		      <button type="submit" class="btn btn-primary">Spočítat</button>
+		    </div>
+		  </div>
+		</form>
+
+		<th:block th:include="layout/fragments :: footer-libs"></th:block>
+		<th:block th:include="layout/fragments :: footer"></th:block>
+
+	</div>
+
+</body>
+</html>
