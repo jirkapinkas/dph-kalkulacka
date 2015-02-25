@@ -57,7 +57,7 @@ $(function() {
 		if($("#cenaSDph").prop("disabled")) {
 			var castkaDph = roundToTwo(valCenaBezDph * valDph / 100);
 			inputTextCastkaDph.val(castkaDph);
-			inputTextCenaSDph.val(valCenaBezDph + castkaDph);
+			inputTextCenaSDph.val(roundToTwo(valCenaBezDph + castkaDph));
 		}
 		else if($("#cenaBezDph").prop("disabled")) {
 			// http://www.zakonyprolidi.cz/cs/2004-235#p37-2
