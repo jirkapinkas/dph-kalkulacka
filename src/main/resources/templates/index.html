@@ -1,73 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Kalkulačka DPH</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<th:block th:include="layout/fragments :: header-libs"></th:block>
+	<th:block th:include="layout/header :: header-meta"></th:block>
+	<th:block th:include="layout/header :: header-libs"></th:block>
 </head>
 <body>
 
-	<th:block th:include="layout/fragments :: navbar"></th:block>
+	<th:block th:include="layout/header :: navbar"></th:block>
 	
 	<div class="container">
+
+		<div class="row">
+			<div class="col-md-8">
+				<th:block th:include="layout/adsense :: banner"></th:block>
+			</div>
+		</div>
 	
-	<div class="row">
-	<div class="col-md-4">
-		<form class="form-horizontal">
-		  <div class="form-group">
-		    <label for="dph" class="col-sm-5 control-label">DPH %:</label>
-		    <div class="col-sm-6">
-				<div class="dropdown">
-				  <input type="text" class="dropdown-toggle form-control" id="dph" data-toggle="dropdown" aria-expanded="true" />
-				    
-				  <ul class="dropdown-menu" role="menu" aria-labelledby="dph">
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">10%</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">15%</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">21%</a></li>
-				  </ul>
+		<div class="row">
+			<div class="col-md-4">
+				<th:block th:include="layout/homepage :: calculator"></th:block>
+			</div>
+		    <div class="col-md-4">
+				<th:block th:include="layout/homepage :: help"></th:block>
+		    </div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8">
+				<div class="alert alert-info alert-dismissible fade in" id="alertInfo">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<div style="padding-right:20px">
+						DPH Kalkulačka potřebuje dvě hodnoty: DPH a cenu bez DPH, nebo DPH a cenu s DPH. 
+						Výpočet ceny bez DPH je dle <a href="http://www.zakonyprolidi.cz/cs/2004-235#p37-2" target="_blank">235/2004 Sb. §37, odstavec 2).</a>
+						Výsledky jsou zaokrouhleny na dvě desetinná místa.
+					</div>
 				</div>
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="bezDph" class="col-sm-5 control-label">Cena bez DPH:</label>
-		    <div class="col-sm-6">
-		      <input type="text" class="form-control" id="cenaBezDph" placeholder="" />
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="bezDph" class="col-sm-5 control-label">Cena s DPH:</label>
-		    <div class="col-sm-6">
-		      <input type="text" class="form-control" id="cenaSDph" placeholder="" />
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="bezDph" class="col-sm-5 control-label">Částka DPH:</label>
-		    <div class="col-sm-6">
-		      <input type="text" class="form-control" id="castkaDph" placeholder="" />
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="col-sm-offset-4 col-sm-2">
-		      <button type="submit" class="btn btn-primary">Spočítat</button>
-		    </div>
-		  </div>
-		</form>
-	</div>
-    <div class="col-md-4">
-    	<h2>DPH pro rok 2015:</h2>
-    	<ul>
-    		<li>10%: Kojenecká výživa, léky, knihy, hudebniny</li>
-    		<li>15%: Například jízdenky, ubytování. Veškeré zboží uvedené v <a href="http://www.zakonyprolidi.cz/cs/2004-235#prilohy" target="_blank">příloze 3</a> zákona o DPH, veškeré služby uvedené v <a href="http://www.zakonyprolidi.cz/cs/2004-235#prilohy" target="_blank">příloze 2</a> tamtéž.</li>
-    		<li>21%: Naprostá většina zboží a služeb</li>
-    	</ul>
-    </div>
-	</div>
+				<script type="text/javascript">
+					$('#alertInfo').on('closed.bs.alert', function () {
+						// TODO dodelat nastaveni cookie, aby se neustale nezobrazovala informativni hlaska
+					})
+				</script>
+			</div>
+		</div>
 
+<!-- 		<h2 style="padding-bottom:20px">Uložené výpočty:</h2> -->
 
-		<th:block th:include="layout/fragments :: footer-libs"></th:block>
-		<th:block th:include="layout/fragments :: footer"></th:block>
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-8"> -->
+<!-- 				<th:block th:include="layout/homepage :: table"></th:block> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+		<th:block th:include="layout/footer :: footer"></th:block>
 
 	</div>
+
+	<th:block th:include="layout/footer :: footer-libs"></th:block>
 
 </body>
 </html>
