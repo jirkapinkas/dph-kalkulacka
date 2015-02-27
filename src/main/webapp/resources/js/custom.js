@@ -150,11 +150,6 @@ $(function() {
                     }
                 }]
         });
-//        $('#deleteDialog').modal();
-//         TODO zobrazit dialog - ten jeste musim dodelat - a az po jeho potvrzeni zaznam skutecne smazat!!!
-//        $.post("/items/delete/" + itemId, function (data) {
-//			dataTable.ajax.reload();
-//        });
     } );
 
 
