@@ -49,10 +49,10 @@ $(function() {
 		var inputTextCenaBezDph = $("#cenaBezDph");
 		var inputTextCenaSDph = $("#cenaSDph");
 		var inputTextCastkaDph = $("#castkaDph");
-		var valDph = parseInt(inputTextDph.val());
-		var valCenaBezDph = parseInt(inputTextCenaBezDph.val());
-		var valCenaSDph = parseInt(inputTextCenaSDph.val());
-		var valCastkaDph = parseInt(inputTextCastkaDph.val());
+		var valDph = parseFloat(inputTextDph.val());
+		var valCenaBezDph = parseFloat(inputTextCenaBezDph.val().replace(",", "."));
+		var valCenaSDph = parseFloat(inputTextCenaSDph.val().replace(",", "."));
+		var valCastkaDph = parseFloat(inputTextCastkaDph.val());
 		if(!valCenaBezDph && !valCenaSDph) {
 			return;
 		}
