@@ -57,29 +57,21 @@ $(function() {
 			return;
 		}
 		if($("#cenaSDph").prop("disabled")) {
-			var castkaDph = roundToTwo(valCenaBezDph * valDph / 100);
+			var castkaDph = (valCenaBezDph * valDph / 100).toFixed(2);
 			inputTextCastkaDph.val(castkaDph);
-			inputTextCenaSDph.val(roundToTwo(valCenaBezDph + castkaDph));
+			inputTextCenaSDph.val((valCenaBezDph + castkaDph).toFixed(2));
 		}
 		else if($("#cenaBezDph").prop("disabled")) {
 			// http://www.zakonyprolidi.cz/cs/2004-235#p37-2
-			var koeficient = roundToFour(valDph / (valDph + 100));
-			var castkaDph = roundToTwo(valCenaSDph * koeficient);
-			var castkaSDph = roundToTwo(valCenaSDph - castkaDph);
+			var koeficient = (valDph / (valDph + 100)).toFixed(4);
+			var castkaDph = (valCenaSDph * koeficient).toFixed(2);
+			var castkaSDph = (valCenaSDph - castkaDph).toFixed(2);
 			inputTextCastkaDph.val(castkaDph);
 			inputTextCenaBezDph.val(castkaSDph);
 		}
 		
 		$(".save").css("display", "inline");
 	});
-	
-	function roundToFour(num) {    
-		return +(Math.round(num + "e+4")  + "e-4");
-	}
-
-	function roundToTwo(num) {    
-		return +(Math.round(num + "e+2")  + "e-2");
-	}
 	
 	$(".save").click(function(e) {
 		e.preventDefault();
