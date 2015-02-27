@@ -11,5 +11,5 @@
 <p>Uses Heroku PostgreSQL database</p>
 
 <p>
-To deploy on Heroku use: <code>git push -f -u origin master</code>
+To deploy on Heroku use: <code>git push -f heroku master</code>
 </p>
