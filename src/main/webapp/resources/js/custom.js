@@ -50,22 +50,22 @@ $(function() {
 		var inputTextCenaSDph = $("#cenaSDph");
 		var inputTextCastkaDph = $("#castkaDph");
 		var valDph = parseFloat(inputTextDph.val());
-		var valCenaBezDph = parseFloat(inputTextCenaBezDph.val().replace(",", "."));
-		var valCenaSDph = parseFloat(inputTextCenaSDph.val().replace(",", "."));
-		var valCastkaDph = parseFloat(inputTextCastkaDph.val());
+		var valCenaBezDph = parseFloat(parseFloat(inputTextCenaBezDph.val().replace(",", ".")).toFixed(2));
+		var valCenaSDph = parseFloat(parseFloat(inputTextCenaSDph.val().replace(",", ".")).toFixed(2));
+		var valCastkaDph = parseFloat(parseFloat(inputTextCastkaDph.val()).toFixed(2));
 		if(!valCenaBezDph && !valCenaSDph) {
 			return;
 		}
 		if($("#cenaSDph").prop("disabled")) {
-			var castkaDph = (valCenaBezDph * valDph / 100).toFixed(2);
+			var castkaDph = parseFloat((valCenaBezDph * valDph / 100).toFixed(2));
 			inputTextCastkaDph.val(castkaDph);
 			inputTextCenaSDph.val((valCenaBezDph + castkaDph).toFixed(2));
 		}
 		else if($("#cenaBezDph").prop("disabled")) {
 			// http://www.zakonyprolidi.cz/cs/2004-235#p37-2
-			var koeficient = (valDph / (valDph + 100)).toFixed(4);
-			var castkaDph = (valCenaSDph * koeficient).toFixed(2);
-			var castkaSDph = (valCenaSDph - castkaDph).toFixed(2);
+			var koeficient = parseFloat((valDph / (valDph + 100)).toFixed(4));
+			var castkaDph = parseFloat((valCenaSDph * koeficient).toFixed(2));
+			var castkaSDph = parseFloat((valCenaSDph - castkaDph).toFixed(2));
 			inputTextCastkaDph.val(castkaDph);
 			inputTextCenaBezDph.val(castkaSDph);
 		}
@@ -89,7 +89,7 @@ $(function() {
     var dataTable = $('#items').DataTable({
     	"language" : {"url": "//cdn.datatables.net/plug-ins/f2c75b7247b/i18n/Czech.json"},
     	"ajax" : "/items",
-    	"columns" : [ {"data" : "id"}, {"data": "name"}, {"data": "cenaBezDph", "width" : "60px"}, {"data": "cenaSDph", "width" : "60px"}, {"data": "", "width" : "90px"} ],
+    	"columns" : [ {"data" : "id"}, {"data": "name"}, {"data": "dph", "width": "30px"}, {"data": "cenaBezDph", "width" : "60px"}, {"data": "cenaSDph", "width" : "60px"}, {"data": "", "width" : "90px"} ],
     	"columnDefs" : [ {
 			"targets": -1,
 			"data": null,

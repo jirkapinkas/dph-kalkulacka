@@ -1,5 +1,7 @@
 package cz.jiripinkas.vatcalc.controller;
 
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,6 @@ public class IndexController {
 
 	@RequestMapping("/index.html")
 	public String index(Model model) {
-		// model.addAttribute("items", itemService.findAll());
 		return "index";
 	}
 
@@ -42,18 +43,20 @@ public class IndexController {
 			@RequestParam boolean cenaSDphDisabled, @RequestParam double castkaDph) {
 		Item item = new Item();
 		item.setDph(dph);
-		item.setName(name);
+		item.setName(Jsoup.clean(name, Whitelist.none()));
 		item.setCenaBezDph(cenaBezDph);
 		item.setCenaSDph(cenaSDph);
 		item.setCastkaDph(castkaDph);
 		item.setCenaBezDphDisabled(cenaBezDphDisabled);
 		item.setCenaSDphDisabled(cenaSDphDisabled);
+
 		itemService.save(item);
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value = "/items/delete/{id}", method=RequestMethod.POST)
+	@RequestMapping(value = "/items/delete/{id}", method = RequestMethod.POST)
 	public void remove(@PathVariable int id) {
+		// TODO Only administrator should be able to remove items!!!
 		itemService.delete(id);
 	}
 

@@ -89,4 +89,10 @@ public class Item {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", cenaBezDph=" + cenaBezDph + ", cenaSDph=" + cenaSDph + ", dph=" + dph + ", castkaDph=" + castkaDph + ", cenaBezDphDisabled="
+				+ cenaBezDphDisabled + ", cenaSDphDisabled=" + cenaSDphDisabled + "]";
+	}
+
 }
