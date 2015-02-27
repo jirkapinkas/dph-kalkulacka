@@ -20,6 +20,11 @@ public class InitDbService {
 	public void init() {
 		Item item = new Item();
 		item.setName("Kilometrická banka ČD");
+		item.setDph(15);
+		item.setCenaBezDph(1913.12);
+		item.setCenaSDph(2200);
+		item.setCastkaDph(286.88);
+		item.setCenaBezDphDisabled(true);
 		itemRepository.save(item);
 	}
 }

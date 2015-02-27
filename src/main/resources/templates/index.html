@@ -29,28 +29,20 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="alert alert-info alert-dismissible fade in" id="alertInfo">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<div style="padding-right:20px">
-						DPH Kalkulačka potřebuje dvě hodnoty: DPH a cenu bez DPH, nebo DPH a cenu s DPH. 
-						Výpočet ceny bez DPH je dle <a href="http://www.zakonyprolidi.cz/cs/2004-235#p37-2" target="_blank">235/2004 Sb. §37, odstavec 2).</a>
-						Výsledky jsou zaokrouhleny na dvě desetinná místa.
-					</div>
+					DPH Kalkulačka potřebuje dvě hodnoty: DPH a cenu bez DPH, nebo DPH a cenu s DPH. 
+					Výpočet ceny bez DPH je dle <a href="http://www.zakonyprolidi.cz/cs/2004-235#p37-2" target="_blank">235/2004 Sb. §37, odstavec 2).</a>
+					Výsledky jsou zaokrouhleny na dvě desetinná místa.
 				</div>
-				<script type="text/javascript">
-					$('#alertInfo').on('closed.bs.alert', function () {
-						// TODO dodelat nastaveni cookie, aby se neustale nezobrazovala informativni hlaska
-					})
-				</script>
 			</div>
 		</div>
 
-<!-- 		<h2 style="padding-bottom:20px">Uložené výpočty:</h2> -->
+		<h2 style="padding-bottom:20px">Uložené výpočty:</h2>
 
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-md-8"> -->
-<!-- 				<th:block th:include="layout/homepage :: table"></th:block> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div class="row">
+			<div class="col-md-8">
+				<th:block th:include="layout/homepage :: table"></th:block>
+			</div>
+		</div>
 
 		<th:block th:include="layout/footer :: footer"></th:block>
 

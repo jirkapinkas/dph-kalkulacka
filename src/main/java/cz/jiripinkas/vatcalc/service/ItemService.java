@@ -18,4 +18,16 @@ public class ItemService {
 		return itemRepository.findAll();
 	}
 
+	public void save(Item item) {
+		itemRepository.save(item);
+	}
+
+	public Item findOne(int id) {
+		return itemRepository.findOne(id);
+	}
+
+	public void delete(int id) {
+		itemRepository.delete(id);
+	}
+
 }

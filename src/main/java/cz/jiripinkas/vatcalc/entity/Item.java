@@ -19,6 +19,36 @@ public class Item {
 
 	private int dph;
 
+	private double castkaDph;
+
+	private boolean cenaBezDphDisabled;
+
+	private boolean cenaSDphDisabled;
+
+	public double getCastkaDph() {
+		return castkaDph;
+	}
+
+	public void setCastkaDph(double castkaDph) {
+		this.castkaDph = castkaDph;
+	}
+
+	public boolean isCenaBezDphDisabled() {
+		return cenaBezDphDisabled;
+	}
+
+	public void setCenaBezDphDisabled(boolean cenaBezDphDisabled) {
+		this.cenaBezDphDisabled = cenaBezDphDisabled;
+	}
+
+	public boolean isCenaSDphDisabled() {
+		return cenaSDphDisabled;
+	}
+
+	public void setCenaSDphDisabled(boolean cenaSDphDisabled) {
+		this.cenaSDphDisabled = cenaSDphDisabled;
+	}
+
 	public double getCenaBezDph() {
 		return cenaBezDph;
 	}
