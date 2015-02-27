@@ -12,19 +12,21 @@ import cz.jiripinkas.vatcalc.repository.ItemRepository;
 @Transactional
 @Service
 public class InitDbService {
-	
+
 	@Autowired
 	private ItemRepository itemRepository;
 
 	@PostConstruct
 	public void init() {
-		Item item = new Item();
-		item.setName("Kilometrická banka ČD");
-		item.setDph(15);
-		item.setCenaBezDph(1913.12);
-		item.setCenaSDph(2200);
-		item.setCastkaDph(286.88);
-		item.setCenaBezDphDisabled(true);
-		itemRepository.save(item);
+		if (itemRepository.count() == 0) {
+			Item item = new Item();
+			item.setName("Kilometrická banka ČD");
+			item.setDph(15);
+			item.setCenaBezDph(1913.12);
+			item.setCenaSDph(2200);
+			item.setCastkaDph(286.88);
+			item.setCenaBezDphDisabled(true);
+			itemRepository.save(item);
+		}
 	}
 }
