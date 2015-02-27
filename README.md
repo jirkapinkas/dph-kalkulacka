@@ -4,7 +4,7 @@
 
 <p>Uses in-memory HSQL database</p>
 
-<code>mvn spring-boot:run -P dev</code>
+<code>mvn spring-boot:run -P dev -Dspring.profiles.active=dev</code>
 
 <h2>Production:</h2>
 
