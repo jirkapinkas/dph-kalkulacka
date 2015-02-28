@@ -93,7 +93,7 @@ $(function() {
     	"columnDefs" : [ {
 			"targets": -1,
 			"data": null,
-			"defaultContent": "<button class='btn btn-primary btnNacist'>Načíst</button> <button class='btn btn-danger btnSmazat'>X</button> "
+			"defaultContent": "<button class='btn btn-primary btnNacist'>Načíst</button>"
     	}, {
 			"targets": 0,
 			"visible": false
