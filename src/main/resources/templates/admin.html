@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="layout/header :: header-meta"></th:block>
+	<th:block th:include="layout/header :: header-libs"></th:block>
+	<script src="/resources/js/custom-admin.js"></script>
+</head>
+<body>
+	<th:block th:include="layout/header :: navbar"></th:block>
+	
+	<div class="container">
+
+		<h2 style="padding-bottom:20px">Skryté výpočty:</h2>
+
+		<div class="row">
+			<div class="col-md-8">
+				<th:block th:include="layout/admin :: table"></th:block>
+			</div>
+		</div>
+
+		<th:block th:include="layout/footer :: footer"></th:block>
+
+	</div>
+
+	<th:block th:include="layout/footer :: footer-libs"></th:block>
+
+</body>
+</html>

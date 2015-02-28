@@ -1,0 +1,40 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+
+	<th:block th:fragment="table">
+		<table id="adminTable" class="display" style="width: 100%">
+	        <thead>
+	            <tr>
+					<th>Id</th>
+					<th>Název</th>
+					<th>DPH</th>
+					<th>Bez DPH</th>
+					<th>S DPH</th>
+					<th>Operace</th>
+	            </tr>
+	        </thead>
+        </table>
+	</th:block>
+
+	<th:block th:fragment="accountForm">
+		<form method="post" action="" class="form-horizontal">
+		  <div class="form-group">
+		    <label for="bezDph" class="col-sm-2 control-label">uživatelské jméno:</label>
+		    <div class="col-sm-2">
+		      <input type="text" class="form-control" name="username" th:value="${currentUsername}" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="bezDph" class="col-sm-2 control-label">heslo:</label>
+		    <div class="col-sm-2">
+		      <input type="password" class="form-control" name="password" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2">
+			  <input type="submit" class="btn btn-lg btn-primary" value="Odeslat" />
+			</div>
+		  </div>
+		</form>
+	</th:block>
+
+</th:block>

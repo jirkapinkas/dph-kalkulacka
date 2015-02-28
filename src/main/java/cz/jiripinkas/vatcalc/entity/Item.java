@@ -25,6 +25,16 @@ public class Item {
 
 	private boolean cenaSDphDisabled;
 
+	private boolean visible;
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
 	public double getCastkaDph() {
 		return castkaDph;
 	}

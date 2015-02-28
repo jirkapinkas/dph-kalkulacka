@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import cz.jiripinkas.vatcalc.entity.Item;
@@ -18,8 +19,8 @@ public class ItemService {
 	@Autowired
 	private ItemRepository itemRepository;
 
-	public List<Item> findAll() {
-		return itemRepository.findAll();
+	public List<Item> findVisible() {
+		return itemRepository.findVisible();
 	}
 
 	protected void validateInput(Item item) {
@@ -68,8 +69,19 @@ public class ItemService {
 		return itemRepository.findOne(id);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void delete(int id) {
 		itemRepository.delete(id);
+	}
+
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public List<Item> findInvisible() {
+		return itemRepository.findInvisible();
+	}
+
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public void setVisible(int id) {
+		itemRepository.setVisible(id);
 	}
 
 }

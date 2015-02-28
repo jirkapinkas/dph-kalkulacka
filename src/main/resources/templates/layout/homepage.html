@@ -4,7 +4,7 @@
 		<table id="items" class="display" style="width: 100%">
 	        <thead>
 	            <tr>
-	            	<th>Id</th>
+					<th>Id</th>
 					<th>Název</th>
 					<th>DPH</th>
 					<th>Bez DPH</th>
@@ -60,6 +60,7 @@
 		</form>
 
 		<!-- Modal -->
+    	<form id="submitForm">
 		<div class="modal fade" id="saveDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -70,9 +71,16 @@
 		      <div class="modal-body">
 				  <div class="form-horizontal">
 					  <div class="form-group">
+					    <div class="col-sm-12">
+					    	<div class="alert alert-info">
+					    		Výpočet bude uložen do veřejné databáze výpočtů a po překontrolování administrátorem bude zveřejněn.
+					    	</div>
+					    </div>
+					  </div>
+					  <div class="form-group">
 					    <label for="bezDph" class="col-sm-2 control-label">Název:</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="name" />
+					      <input type="text" class="form-control" id="name" name="name" />
 					    </div>
 					  </div>
 				  </div>
@@ -84,6 +92,7 @@
 		    </div>
 		  </div>
 		</div>
+    	</form>
 
 	</th:block>
 

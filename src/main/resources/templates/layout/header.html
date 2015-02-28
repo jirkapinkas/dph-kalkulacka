@@ -1,4 +1,4 @@
-<th:block xmlns:th="http://www.thymeleaf.org">
+<th:block xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
 
 	<th:block th:fragment="header-meta">
 		<title>Kalkulačka DPH</title>
@@ -34,6 +34,11 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+				<li><a href="/odkazy.html">Odkazy</a></li>
+				<li sec:authorize="!isAuthenticated()"><a href="/login.html">Přihlásit</a></li>
+				<li sec:authorize="isAuthenticated()"><a href="/logout">Odhlásit <span sec:authentication="name">user</span></a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/index.html">Administrace</a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/account.html">Můj účet</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

@@ -120,33 +120,12 @@ $(function() {
         });
     } );
 
-    $('#items tbody').on( 'click', '.btnSmazat', function () {
-        var data = dataTable.row( $(this).parents('tr') ).data();
-        var itemId = data.id;
-        BootstrapDialog.show({
-	            title: 'Opravdu smazat?',
-	            message: 'Opravdu smazat "' + data.name + '"?',
-                buttons: [{
-                    label: 'Storno',
-                    action: function(dialog) {
-                    	dialog.close();
-                    }
-                }, {
-                    label: 'Smazat',
-                    cssClass: 'btn-primary',
-                    action: function(dialog) {
-						$.post("/items/delete/" + itemId, function (data) {
-							dataTable.ajax.reload();
-						});
-                    	dialog.close();
-                    }
-                }]
-        });
-    } );
-
-
     $(".saveConfirm").click(function(e) {
 		e.preventDefault();
+		var form = $("#submitForm");
+		if(!form.valid()) {
+			return;
+		}
 		var valName = $("#name").val();
 		var valCenaBezDph = $("#cenaBezDph").val();
 		var valCenaSDph = $("#cenaSDph").val();
@@ -157,7 +136,6 @@ $(function() {
 		$.post("/save", {name : valName, cenaBezDph : valCenaBezDph, cenaSDph : valCenaSDph, 
 						 dph : valDph, cenaBezDphDisabled : valCenaBezDphDisabled, 
 						 cenaSDphDisabled : valCenaSDphDisabled, castkaDph : valCastkaDph}, function(data) {
-			dataTable.ajax.reload();
 		});
 		$('#saveDialog').modal("hide");
 	});
@@ -169,7 +147,25 @@ $(function() {
     	    $('.saveConfirm').click();
     	    return false;  
     	  }
-	});   
+	});
+    
+    $.validator.messages.required = "Toto pole je povinné!";
 
+    $("#submitForm").validate(
+    		{
+    			rules: {
+    				name: {
+    					required : true,
+    					minlength : 1
+    				}
+    			},
+    			highlight: function(element) {
+    				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+    			},
+    			unhighlight: function(element) {
+    				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+    			}
+    		}
+    );
 
 });
