@@ -37,7 +37,7 @@
 				<li><a href="/odkazy.html">Odkazy</a></li>
 				<li sec:authorize="!isAuthenticated()"><a href="/login.html">Přihlásit</a></li>
 				<li sec:authorize="isAuthenticated()"><a href="/logout">Odhlásit <span sec:authentication="name">user</span></a></li>
-				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/index.html">Administrace</a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/">Administrace</a></li>
 				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/account.html">Můj účet</a></li>
             </ul>
           </div><!--/.nav-collapse -->

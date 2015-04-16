@@ -19,7 +19,7 @@ public class IndexController {
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping("/index.html")
+	@RequestMapping("/")
 	public String index() {
 		return "index";
 	}

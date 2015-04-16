@@ -33,7 +33,7 @@ public class AdminController {
 		itemService.setVisible(id);
 	}
 	
-	@RequestMapping("/admin/index.html")
+	@RequestMapping("/admin/")
 	public String administer() {
 		return "admin";
 	}
