@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Profile;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-//@Profile("openshift")
-//@Configuration
+@Profile("openshift")
+@Configuration
 public class SpringOpenshiftConfiguration {
 
 	@Bean
